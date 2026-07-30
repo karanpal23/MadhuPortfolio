@@ -94,19 +94,22 @@ Alternatives: [Formspree](https://formspree.io) (50/mo), or Netlify Forms (100/m
 
 ## 4. Hosting — free options, ranked
 
-**#1 — Cloudflare Pages.** Use this. Unlimited bandwidth on the free plan, global CDN, free SSL, free custom domain, preview URL for every git push, and no "hobby projects only" clause — so it's fine for a business site.
+**#1 — Cloudflare Pages.** Use this. Unlimited bandwidth on the free plan, global CDN, free SSL, free custom domain, and no "hobby projects only" clause — so it's fine for a business site.
 
-```bash
+**Fastest route — direct upload, no GitHub needed.** The repo is already initialised and committed.
+
+```powershell
 cd C:\Users\karan\dev\portfolio
-git init
-git add .
-git commit -m "Portfolio site"
-gh repo create portfolio --public --source=. --push     # or create the repo on github.com and push
+npx wrangler login                                        # one-time browser sign-in
+npx wrangler pages deploy . --project-name=madhusalaria   # live in ~30 seconds
 ```
 
-Then: dash.cloudflare.com → Workers & Pages → Create → Pages → Connect to Git → pick the repo →
-**Framework preset: None**, build command: *(empty)*, output directory: `/` → Deploy.
-Live at `your-project.pages.dev` in about a minute. Every `git push` redeploys.
+> **The project name must be `madhusalaria`** — the canonical URL, OG tags, JSON-LD, `robots.txt` and `sitemap.xml` all point at `https://madhusalaria.pages.dev/`. If that name is taken, pick another and immediately run
+> `.\tools\personalise.ps1 -Domain "<newname>.pages.dev"` so the metadata matches, then redeploy. A mismatched `og:url` breaks the LinkedIn/WhatsApp link preview.
+
+Re-run the `pages deploy` line any time to publish changes.
+
+**Alternative — connect a Git repo** so every push redeploys automatically: push to GitHub, then dash.cloudflare.com → Workers & Pages → Create → Pages → Connect to Git → pick the repo → **Framework preset: None**, build command *(empty)*, output directory `/` → Deploy.
 
 **#2 — GitHub Pages.** Simplest if the code is already on GitHub. Repo → Settings → Pages → Source: `main`, folder `/ (root)`. You get `yourname.github.io/portfolio`, or name the repo `yourname.github.io` for a clean `yourname.github.io` URL. Custom domains and SSL are free. Slower cache invalidation than Cloudflare, no preview deploys.
 
