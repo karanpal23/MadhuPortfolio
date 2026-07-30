@@ -1,0 +1,8 @@
+# personalise.ps1 keeps these as a safety net - they still contain the
+# old placeholder text, so they must never reach the deployed site.
+*.bak
+
+# OS noise
+Thumbs.db
+desktop.ini
+.DS_Store

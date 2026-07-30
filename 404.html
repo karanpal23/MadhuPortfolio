@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page not found — Madhu Salaria</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230E1615'/%3E%3Cpath d='M6 26V6l10 12L26 6v20' stroke='%23E3775A' stroke-width='2.6' fill='none' stroke-linejoin='round'/%3E%3Crect x='22' y='6' width='4' height='4' fill='%235CC8BB'/%3E%3C/svg%3E" />
+<style>
+:root{
+  --paper:#E9EDEC;--panel:#FBFCFB;--ink:#12201F;--muted:#546865;
+  --rule:rgba(18,32,31,.16);--rule-strong:rgba(18,32,31,.34);--stamp:#A83A22;
+  --mono:ui-monospace,"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,monospace;
+  --serif:Charter,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#0E1615;--panel:#141F1E;--ink:#DEE6E4;--muted:#8FA29F;
+    --rule:rgba(222,230,228,.16);--rule-strong:rgba(222,230,228,.36);--stamp:#E3775A}
+}
+:root[data-theme="dark"]{--paper:#0E1615;--panel:#141F1E;--ink:#DEE6E4;--muted:#8FA29F;
+  --rule:rgba(222,230,228,.16);--rule-strong:rgba(222,230,228,.36);--stamp:#E3775A}
+:root[data-theme="light"]{--paper:#E9EDEC;--panel:#FBFCFB;--ink:#12201F;--muted:#546865;
+  --rule:rgba(18,32,31,.16);--rule-strong:rgba(18,32,31,.34);--stamp:#A83A22}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:2rem;
+  background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.68}
+.card{max-width:34rem;display:flex;flex-direction:column;gap:1.1rem}
+.lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--mono);font-size:clamp(1.5rem,1.1rem+2vw,2.2rem);font-weight:600;letter-spacing:-.03em;margin:0}
+h1 em{font-style:normal;color:var(--stamp)}
+p{margin:0;color:var(--muted)}
+hr{border:0;border-top:1px solid var(--rule-strong);margin:0}
+a.btn{align-self:flex-start;font-family:var(--mono);font-size:.78rem;font-weight:600;letter-spacing:.05em;
+  padding:.7rem 1.1rem;background:var(--stamp);color:#FFF6F2;text-decoration:none}
+:root[data-theme="dark"] a.btn,:root:not([data-theme]) a.btn{color:#1A0C07}
+@media (prefers-color-scheme:light){:root:not([data-theme]) a.btn{color:#FFF6F2}}
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="lbl">Error 404</span>
+    <h1>That page <em>doesn't exist.</em></h1>
+    <hr />
+    <p>Wrong link, or something that used to live here has moved. Everything on this site is on one page — the link below will get you there.</p>
+    <a class="btn" href="/">Back to the start</a>
+  </div>
+</body>
+</html>

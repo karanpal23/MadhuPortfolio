@@ -1,0 +1,1188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- ============================================================
+     EDIT THESE FIRST  (see README.md → "Placeholders" checklist)
+     ============================================================ -->
+<title>Madhu Salaria — Spring Boot &amp; Angular application delivery</title>
+<meta name="description" content="Senior engineer, 10+ years. I design, build and deploy production web applications in Java Spring Boot and Angular — fixed scope, weekly demos, full handover with docs and CI/CD." />
+<link rel="canonical" href="https://madhusalaria.pages.dev/" />
+<meta name="theme-color" content="#0E1615" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Madhu Salaria — Spring Boot &amp; Angular application delivery" />
+<meta property="og:description" content="I build the application, then hand you the keys: source, docs, CI/CD, runbook and a 30-day warranty." />
+<meta property="og:url" content="https://madhusalaria.pages.dev/" />
+<meta property="og:image" content="https://madhusalaria.pages.dev/assets/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230E1615'/%3E%3Cpath d='M6 26V6l10 12L26 6v20' stroke='%23E3775A' stroke-width='2.6' fill='none' stroke-linejoin='round'/%3E%3Crect x='22' y='6' width='4' height='4' fill='%235CC8BB'/%3E%3C/svg%3E" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Madhu Salaria — Software Delivery",
+  "description": "Java Spring Boot and Angular application development, API engineering, legacy modernisation and deployment.",
+  "url": "https://madhusalaria.pages.dev/",
+  "email": "madhusalaria1996@gmail.com",
+  "areaServed": "Worldwide",
+  "knowsAbout": ["Java", "Spring Boot", "Angular", "React", "Node.js", "PostgreSQL", "Docker", "AWS", "WordPress"],
+  "founder": {
+    "@type": "Person",
+    "name": "Madhu Salaria",
+    "jobTitle": "Senior Software Engineer",
+    "email": "madhusalaria1996@gmail.com"
+  }
+}
+</script>
+
+<style>
+/* ─────────────────────────────────────────────────────────────
+   TOKENS — drafting paper / oxide stamp / drafting teal
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --paper:#E9EDEC;
+  --panel:#FBFCFB;
+  --panel-2:#DFE5E3;
+  --ink:#12201F;
+  --muted:#546865;
+  --rule:rgba(18,32,31,.16);
+  --rule-strong:rgba(18,32,31,.34);
+  --stamp:#A83A22;
+  --stamp-wash:rgba(168,58,34,.08);
+  --teal:#0C6A62;
+  --teal-wash:rgba(12,106,98,.10);
+
+  --mono:ui-monospace,"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,"Liberation Mono",monospace;
+  --serif:Charter,"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+
+  --page:1240px;
+  --gutter:clamp(1.15rem,4vw,3rem);
+  --gut-col:9.5rem;
+
+  --s1:.35rem; --s2:.6rem; --s3:1rem; --s4:1.6rem; --s5:2.4rem; --s6:3.6rem; --s7:5.5rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#0E1615;
+    --panel:#141F1E;
+    --panel-2:#1B2726;
+    --ink:#DEE6E4;
+    --muted:#8FA29F;
+    --rule:rgba(222,230,228,.16);
+    --rule-strong:rgba(222,230,228,.36);
+    --stamp:#E3775A;
+    --stamp-wash:rgba(227,119,90,.10);
+    --teal:#5CC8BB;
+    --teal-wash:rgba(92,200,187,.10);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1615; --panel:#141F1E; --panel-2:#1B2726;
+  --ink:#DEE6E4; --muted:#8FA29F;
+  --rule:rgba(222,230,228,.16); --rule-strong:rgba(222,230,228,.36);
+  --stamp:#E3775A; --stamp-wash:rgba(227,119,90,.10);
+  --teal:#5CC8BB; --teal-wash:rgba(92,200,187,.10);
+}
+:root[data-theme="light"]{
+  --paper:#E9EDEC; --panel:#FBFCFB; --panel-2:#DFE5E3;
+  --ink:#12201F; --muted:#546865;
+  --rule:rgba(18,32,31,.16); --rule-strong:rgba(18,32,31,.34);
+  --stamp:#A83A22; --stamp-wash:rgba(168,58,34,.08);
+  --teal:#0C6A62; --teal-wash:rgba(12,106,98,.10);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BASE
+   ───────────────────────────────────────────────────────────── */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:clamp(1rem,.97rem + .16vw,1.07rem);
+  line-height:1.68;
+  font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--mono);font-weight:600;letter-spacing:-.02em;line-height:1.12;margin:0;text-wrap:balance}
+p{margin:0;max-width:66ch}
+ul{margin:0;padding:0;list-style:none}
+a{color:inherit;text-decoration-color:var(--rule-strong);text-underline-offset:.22em}
+a:hover{text-decoration-color:var(--stamp)}
+:focus-visible{outline:2px solid var(--stamp);outline-offset:3px;border-radius:1px}
+img,svg{max-width:100%;display:block}
+
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:.5rem;top:.5rem;z-index:99;background:var(--panel);border:1px solid var(--rule-strong);padding:.5rem .8rem;font-family:var(--mono);font-size:.8rem}
+
+.wrap{max-width:var(--page);margin-inline:auto;padding-inline:var(--gutter)}
+
+/* mono utility type — labels, codes, data */
+.lbl{
+  font-family:var(--mono);font-size:.68rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+}
+.code{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--muted)}
+
+/* ─────────────────────────────────────────────────────────────
+   HAIRLINES — the structural device of the whole page
+   ───────────────────────────────────────────────────────────── */
+.rule{height:1px;background:var(--rule-strong);transform-origin:left center}
+.js .rule{transform:scaleX(0)}
+.js .rule.in{transform:scaleX(1);transition:transform .85s cubic-bezier(.22,.72,.2,1)}
+
+/* ─────────────────────────────────────────────────────────────
+   HEADER
+   ───────────────────────────────────────────────────────────── */
+.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.top__in{display:flex;align-items:center;gap:var(--s4);min-height:58px}
+.mark{display:flex;align-items:baseline;gap:.55rem;font-family:var(--mono);font-size:.86rem;font-weight:700;letter-spacing:.02em;text-decoration:none}
+.mark span{font-weight:400;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.nav{margin-left:auto;display:flex;align-items:center;gap:var(--s4)}
+.nav__list{display:flex;gap:var(--s4)}
+.nav__list a{font-family:var(--mono);font-size:.76rem;letter-spacing:.05em;text-decoration:none;color:var(--muted);padding-block:.35rem;border-bottom:1px solid transparent}
+.nav__list a:hover{color:var(--ink)}
+.nav__list a[aria-current="true"]{color:var(--ink);border-bottom-color:var(--stamp)}
+.tools{display:flex;align-items:center;gap:.6rem;margin-left:auto}
+
+.icobtn{
+  display:grid;place-items:center;width:34px;height:34px;flex:none;
+  background:transparent;border:1px solid var(--rule);color:var(--ink);cursor:pointer;padding:0;
+}
+.icobtn:hover{border-color:var(--rule-strong);background:var(--panel)}
+.icobtn svg{width:16px;height:16px}
+:root[data-theme="dark"] .ico-sun,:root:not([data-theme]) .ico-sun{display:none}
+:root[data-theme="light"] .ico-sun{display:block}
+:root[data-theme="light"] .ico-moon{display:none}
+@media (prefers-color-scheme:light){:root:not([data-theme]) .ico-sun{display:block}:root:not([data-theme]) .ico-moon{display:none}}
+
+.burger{display:none}
+
+/* ─────────────────────────────────────────────────────────────
+   BUTTONS
+   ───────────────────────────────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:var(--mono);font-size:.78rem;font-weight:600;letter-spacing:.05em;
+  padding:.72rem 1.15rem;border:1px solid var(--ink);background:var(--ink);color:var(--paper);
+  text-decoration:none;cursor:pointer;transition:transform .16s ease,background .16s ease,color .16s ease;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn--stamp{background:var(--stamp);border-color:var(--stamp);color:#FFF6F2}
+:root[data-theme="dark"] .btn--stamp,:root:not([data-theme]) .btn--stamp{color:#1A0C07}
+@media (prefers-color-scheme:light){:root:not([data-theme]) .btn--stamp{color:#FFF6F2}}
+.btn--ghost{background:transparent;color:var(--ink);border-color:var(--rule-strong)}
+.btn--ghost:hover{border-color:var(--ink)}
+.btn--sm{padding:.5rem .8rem;font-size:.72rem}
+
+/* ─────────────────────────────────────────────────────────────
+   SHEET — section shell with metadata gutter
+   ───────────────────────────────────────────────────────────── */
+.sheet{padding-block:var(--s7) 0}
+.sheet__grid{display:grid;grid-template-columns:var(--gut-col) minmax(0,1fr);gap:var(--s5)}
+.sheet__gut{display:flex;flex-direction:column;gap:.35rem;position:sticky;top:78px;align-self:start}
+.sheet__gut .sec{font-family:var(--mono);font-size:1.05rem;font-weight:600;color:var(--stamp);letter-spacing:0}
+.sheet__body{display:flex;flex-direction:column;gap:var(--s4);min-width:0}
+.sheet__head{display:flex;flex-direction:column;gap:var(--s3)}
+.sheet h2{font-size:clamp(1.45rem,1.15rem + 1.2vw,2.05rem)}
+.lede{color:var(--muted);max-width:60ch}
+@media (max-width:820px){
+  .sheet{padding-block:var(--s6) 0}
+  .sheet__grid{grid-template-columns:1fr;gap:var(--s3)}
+  .sheet__gut{position:static;flex-direction:row;align-items:baseline;gap:.7rem}
+}
+
+/* ─────────────────────────────────────────────────────────────
+   HERO
+   ───────────────────────────────────────────────────────────── */
+.hero{padding-block:clamp(2.6rem,6vw,5rem) 0}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:var(--s6) var(--s5);align-items:start}
+.hero h1{font-size:clamp(1.95rem,1.15rem + 3.1vw,3.5rem);letter-spacing:-.035em;line-height:1.06}
+.hero h1 em{font-style:normal;color:var(--stamp)}
+.hero__copy{display:flex;flex-direction:column;gap:var(--s4)}
+.hero__copy p{font-size:1.08em}
+.cta{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+.avail{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.dot{width:7px;height:7px;background:var(--teal);border-radius:50%;box-shadow:0 0 0 3px var(--teal-wash)}
+
+/* spec table — the "delivery record" */
+.spec{border:1px solid var(--rule-strong);background:var(--panel)}
+.spec__hd{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.6rem .9rem;border-bottom:1px solid var(--rule-strong);background:var(--panel-2)}
+.spec dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr)}
+.spec dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:.62rem .9rem;border-bottom:1px solid var(--rule);white-space:nowrap}
+.spec dd{margin:0;padding:.62rem .9rem;border-bottom:1px solid var(--rule);font-size:.94rem;text-align:right}
+.spec dt:nth-last-of-type(1),.spec dd:nth-last-of-type(1){border-bottom:0}
+
+.stamp{
+  display:inline-flex;flex-direction:column;align-items:center;gap:.1rem;
+  transform:rotate(-4.5deg);padding:.5rem 1rem;
+  border:2px solid var(--stamp);outline:1px solid var(--stamp);outline-offset:2.5px;
+  color:var(--stamp);background:var(--stamp-wash);
+  font-family:var(--mono);text-transform:uppercase;
+}
+.stamp b{font-size:.9rem;letter-spacing:.14em}
+.stamp i{font-style:normal;font-size:.6rem;letter-spacing:.2em;opacity:.85}
+@media (max-width:900px){
+  .hero__grid{grid-template-columns:1fr}
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SERVICES
+   ───────────────────────────────────────────────────────────── */
+.svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.svc{padding:var(--s4) var(--s4) var(--s4) 0;padding-left:var(--s4);border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:.55rem;transition:background .18s ease}
+.svc:hover{background:var(--panel)}
+.svc h3{font-size:1rem}
+.svc p{font-size:.94rem;color:var(--muted)}
+.svc__meta{margin-top:auto;padding-top:.7rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px dashed var(--rule);font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--muted)}
+.svc__meta b{color:var(--ink);font-weight:600}
+
+/* ─────────────────────────────────────────────────────────────
+   ENGAGEMENT / PRICING
+   ───────────────────────────────────────────────────────────── */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:var(--s3)}
+.tier{border:1px solid var(--rule-strong);background:var(--panel);display:flex;flex-direction:column}
+.tier__hd{padding:.9rem;border-bottom:1px solid var(--rule-strong);display:flex;flex-direction:column;gap:.3rem;background:var(--panel-2)}
+.tier__hd h3{font-size:.95rem}
+.tier__bd{padding:.9rem;display:flex;flex-direction:column;gap:.85rem;flex:1}
+.price{font-family:var(--mono);font-size:1.5rem;font-weight:600;letter-spacing:-.02em;display:flex;align-items:baseline;gap:.4rem}
+.price small{font-family:var(--mono);font-size:.68rem;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tier ul{display:flex;flex-direction:column;gap:.45rem;font-size:.92rem}
+.tier li{display:flex;gap:.55rem;align-items:flex-start;color:var(--muted)}
+.tier li::before{content:"—";color:var(--teal);font-family:var(--mono);flex:none}
+.tier--pick{border-color:var(--stamp)}
+.tier--pick .tier__hd{background:var(--stamp-wash);border-bottom-color:var(--stamp)}
+.tier--pick .price{color:var(--stamp)}
+.pickmark{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--stamp)}
+
+.rates{width:100%;border-collapse:collapse;font-size:.92rem;min-width:34rem}
+.rates caption{text-align:left;padding-bottom:.6rem}
+.rates th,.rates td{text-align:left;padding:.62rem .8rem;border-bottom:1px solid var(--rule)}
+.rates thead th{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule-strong)}
+.rates td:last-child,.rates th:last-child{text-align:right;font-family:var(--mono);font-size:.86rem}
+.scrollx{overflow-x:auto;border:1px solid var(--rule);background:var(--panel)}
+.scrollx>table{margin:0}
+.rates tbody tr:last-child td{border-bottom:0}
+
+/* ─────────────────────────────────────────────────────────────
+   WORK / CASE RECORDS
+   ───────────────────────────────────────────────────────────── */
+.cases{display:flex;flex-direction:column;gap:var(--s4)}
+.case{border:1px solid var(--rule-strong);background:var(--panel)}
+.case__hd{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;padding:.7rem .95rem;border-bottom:1px solid var(--rule-strong);background:var(--panel-2)}
+.case__hd h3{font-size:1rem;margin-right:auto}
+.tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .45rem;border:1px solid currentColor;color:var(--muted)}
+.tag--rep{color:var(--stamp);background:var(--stamp-wash)}
+.case__bd{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.case__bd>div{padding:.95rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:.4rem}
+.case__bd>div:last-child{border-right:0}
+.case__bd p{font-size:.92rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:.3rem}
+.chip{font-family:var(--mono);font-size:.67rem;letter-spacing:.03em;padding:.2rem .42rem;border:1px solid var(--rule);color:var(--muted);background:var(--paper)}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.metric{padding:.85rem .95rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:.15rem}
+.metric:last-child{border-right:0}
+.metric b{font-family:var(--mono);font-size:1.28rem;font-weight:600;letter-spacing:-.02em;color:var(--teal)}
+
+/* ─────────────────────────────────────────────────────────────
+   PROCESS — week-marked, because duration is the information
+   ───────────────────────────────────────────────────────────── */
+.steps{display:flex;flex-direction:column}
+.step{display:grid;grid-template-columns:5.2rem minmax(0,1fr);gap:var(--s3);padding-block:var(--s3);border-top:1px solid var(--rule)}
+.step:last-child{border-bottom:1px solid var(--rule)}
+.step__w{font-family:var(--mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;color:var(--stamp);padding-top:.18rem}
+.step h3{font-size:.98rem;margin-bottom:.3rem}
+.step p{font-size:.93rem;color:var(--muted)}
+.deliver{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.55rem var(--s4);border:1px solid var(--rule-strong);background:var(--panel);padding:var(--s3)}
+.deliver li{display:flex;gap:.6rem;align-items:flex-start;font-size:.93rem}
+.deliver li svg{width:14px;height:14px;flex:none;margin-top:.42rem;color:var(--teal)}
+
+/* ─────────────────────────────────────────────────────────────
+   STACK
+   ───────────────────────────────────────────────────────────── */
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:var(--s4) var(--s5)}
+.stack section{display:flex;flex-direction:column;gap:.6rem}
+.stack h3{font-size:.75rem;font-family:var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding-bottom:.5rem;border-bottom:1px solid var(--rule-strong)}
+.stack ul{display:flex;flex-direction:column;gap:.32rem;font-size:.93rem}
+.stack li{display:flex;justify-content:space-between;gap:1rem;color:var(--muted)}
+.stack li b{font-weight:400;color:var(--ink)}
+.stack li span{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;padding-top:.2rem}
+
+/* ─────────────────────────────────────────────────────────────
+   FAQ
+   ───────────────────────────────────────────────────────────── */
+.faq{border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{
+  display:flex;align-items:center;gap:.9rem;padding:.95rem 0;cursor:pointer;list-style:none;
+  font-family:var(--mono);font-size:.92rem;font-weight:600;letter-spacing:-.01em;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";margin-left:auto;color:var(--stamp);font-weight:400;font-size:1.15rem;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq summary:hover{color:var(--stamp)}
+.faq .ans{padding:0 2.4rem var(--s3) 0;color:var(--muted);font-size:.95rem}
+
+/* ─────────────────────────────────────────────────────────────
+   CONTACT
+   ───────────────────────────────────────────────────────────── */
+.contact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--s5)}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+form{display:flex;flex-direction:column;gap:var(--s3)}
+.field{display:flex;flex-direction:column;gap:.35rem}
+.field label{font-family:var(--mono);font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select,.field textarea{
+  font-family:var(--serif);font-size:1rem;color:var(--ink);background:var(--panel);
+  border:1px solid var(--rule-strong);padding:.62rem .7rem;width:100%;
+}
+.field textarea{resize:vertical;min-height:7rem;font-size:.97rem;line-height:1.55}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted);opacity:.7}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
+.formnote{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;color:var(--muted)}
+.formnote[data-state="err"]{color:var(--stamp)}
+.formnote[data-state="ok"]{color:var(--teal)}
+
+.channels{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule)}
+.channels a,.channels button{
+  display:flex;align-items:baseline;gap:.8rem;padding:.8rem 0;border:0;border-bottom:1px solid var(--rule);
+  background:transparent;color:inherit;text-align:left;text-decoration:none;cursor:pointer;font:inherit;width:100%;
+}
+.channels a:hover,.channels button:hover{color:var(--stamp)}
+.channels .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);width:5.6rem;flex:none}
+.channels .v{font-family:var(--mono);font-size:.86rem;word-break:break-word}
+
+/* ─────────────────────────────────────────────────────────────
+   FOOTER
+   ───────────────────────────────────────────────────────────── */
+footer{margin-top:var(--s7);border-top:1px solid var(--rule-strong);background:var(--panel)}
+.foot{display:flex;flex-wrap:wrap;gap:var(--s3) var(--s5);align-items:baseline;padding-block:var(--s4)}
+.foot p{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted)}
+.foot .end{margin-left:auto}
+
+/* ─────────────────────────────────────────────────────────────
+   REVEAL
+   ───────────────────────────────────────────────────────────── */
+.js .rv{opacity:0;transform:translateY(7px)}
+.js .rv.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.22,.72,.2,1)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .rule{opacity:1;transform:none}
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MOBILE NAV
+   ───────────────────────────────────────────────────────────── */
+@media (max-width:900px){
+  .burger{display:grid}
+  .nav{position:fixed;inset:58px 0 auto 0;display:none;flex-direction:column;align-items:stretch;gap:0;
+        background:var(--paper);border-bottom:1px solid var(--rule-strong);padding:var(--s3) var(--gutter) var(--s4)}
+  .nav[data-open="true"]{display:flex}
+  .nav__list{flex-direction:column;gap:0}
+  .nav__list a{padding:.75rem 0;border-bottom:1px solid var(--rule);font-size:.88rem}
+  .nav .btn{margin-top:var(--s3);justify-content:center}
+  .tools{margin-left:0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="mark" href="#top">MADHU&nbsp;SALARIA <span>Software delivery</span></a>
+
+    <div class="tools">
+      <button class="icobtn burger" type="button" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 4h14M1 8h14M1 12h14"/></svg>
+      </button>
+      <button class="icobtn" type="button" id="theme" aria-label="Switch theme">
+        <svg class="ico-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13.5 10.2A6 6 0 1 1 6.2 2.6a5 5 0 0 0 7.3 7.6Z"/></svg>
+        <svg class="ico-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="3.2"/><path d="M8 .8v1.8M8 13.4v1.8M.8 8h1.8M13.4 8h1.8M2.9 2.9l1.3 1.3M11.8 11.8l1.3 1.3M13.1 2.9l-1.3 1.3M4.2 11.8l-1.3 1.3"/></svg>
+      </button>
+    </div>
+
+    <nav class="nav" id="nav" aria-label="Sections">
+      <ul class="nav__list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#engagement">Engagement</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a class="btn btn--stamp btn--sm" href="#contact">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ══ HERO ══════════════════════════════════════════════ -->
+  <section class="hero" id="top">
+    <div class="wrap hero__grid">
+      <div class="hero__copy rv">
+        <span class="lbl">Java · Spring Boot · Angular — 10+ years</span>
+        <h1>I build the application, then <em>hand you the keys.</em></h1>
+        <p>Most teams don't need another contractor writing tickets. They need someone who can take a half-defined idea, scope it honestly, build it to production standard, and leave behind something the next engineer can pick up without a phone call.</p>
+        <p>That's the whole service. Backend in Spring Boot, frontend in Angular or React, deployed and documented — or handed to your own DevOps, if you'd rather.</p>
+        <div class="cta">
+          <a class="btn btn--stamp" href="#contact">Start a project</a>
+          <a class="btn btn--ghost" href="#work">See how I'd build it</a>
+        </div>
+        <span class="avail"><span class="dot" aria-hidden="true"></span> Taking 2 new projects · Aug&nbsp;2026</span>
+      </div>
+
+      <div class="hero__side rv" style="display:flex;flex-direction:column;gap:var(--s4);align-items:flex-start">
+        <div class="spec" style="width:100%">
+          <div class="spec__hd">
+            <span class="lbl">Delivery record</span>
+            <span class="code">REV&nbsp;2026.07</span>
+          </div>
+          <dl>
+            <dt>Primary stack</dt><dd>Spring Boot · Angular</dd>
+            <dt>Secondary</dt><dd>React · Node.js · WordPress</dd>
+            <dt>Engagement</dt><dd>Fixed scope or retainer</dd>
+            <dt>Typical build</dt><dd>2–8 weeks</dd>
+            <dt>Demo cadence</dt><dd>Weekly, on a real URL</dd>
+            <dt>Handover</dt><dd>Repo · docs · CI/CD · runbook</dd>
+            <dt>Warranty</dt><dd>30 days, bugs fixed free</dd>
+            <dt>Code ownership</dt><dd>Yours, on final payment</dd>
+          </dl>
+        </div>
+        <span class="stamp"><b>Available</b><i>for new work</i></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule"></div></div>
+
+  <!-- ══ SERVICES ══════════════════════════════════════════ -->
+  <section class="sheet" id="services">
+    <div class="wrap sheet__grid">
+      <div class="sheet__gut"><span class="sec">§01</span><span class="lbl">Services</span></div>
+      <div class="sheet__body">
+        <div class="sheet__head rv">
+          <h2>Six ways people usually hire me</h2>
+          <p class="lede">Each line below is a real quotable unit of work. Tell me the part numbers you need and I'll come back with scope, timeline and a fixed figure.</p>
+        </div>
+
+        <div class="svcs rv">
+          <article class="svc">
+            <span class="code">SVC-01</span>
+            <h3>Full application build</h3>
+            <p>Idea or spec to working product: data model, REST API, admin, auth, roles, payments, notifications, the frontend, the lot. One person accountable for all of it.</p>
+            <div class="svc__meta"><span>Spring Boot + Angular</span><b>2–8 wk</b></div>
+          </article>
+
+          <article class="svc">
+            <span class="code">SVC-02</span>
+            <h3>API &amp; backend engineering</h3>
+            <p>Clean REST or GraphQL services, JWT/OAuth2, multi-tenancy, background jobs, Kafka or RabbitMQ events, third-party integrations that don't fall over when the vendor times out.</p>
+            <div class="svc__meta"><span>Java 17/21 · JPA · SQL</span><b>1–4 wk</b></div>
+          </article>
+
+          <article class="svc">
+            <span class="code">SVC-03</span>
+            <h3>Legacy rescue &amp; modernisation</h3>
+            <p>Old Struts/JSP or Spring MVC apps, no tests, slow queries, nobody left who wrote it. Audit first, then strangler-fig migration in slices you can ship without a freeze.</p>
+            <div class="svc__meta"><span>Audit → migrate</span><b>Audit: 5 days</b></div>
+          </article>
+
+          <article class="svc">
+            <span class="code">SVC-04</span>
+            <h3>Deployment &amp; CI/CD</h3>
+            <p>Dockerised builds, GitHub Actions pipelines, Nginx and TLS, environments, secrets, backups, logs and uptime alerts on AWS or a plain VPS. Add it to a build, or buy it alone.</p>
+            <div class="svc__meta"><span>Optional add-on</span><b>3–7 days</b></div>
+          </article>
+
+          <article class="svc">
+            <span class="code">SVC-05</span>
+            <h3>React / Node.js work</h3>
+            <p>React or Next.js frontends against an existing API, Node services, dashboards and internal tools where the team is already committed to the JS side of the fence.</p>
+            <div class="svc__meta"><span>Secondary stack</span><b>1–5 wk</b></div>
+          </article>
+
+          <article class="svc">
+            <span class="code">SVC-06</span>
+            <h3>WordPress &amp; marketing sites</h3>
+            <p>Fast, well-structured WordPress builds, custom themes and blocks, WooCommerce, plus the boring essentials: backups, hardening, page speed, and staff who can edit it safely.</p>
+            <div class="svc__meta"><span>CMS · WooCommerce</span><b>1–3 wk</b></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule"></div></div>
+
+  <!-- ══ ENGAGEMENT ════════════════════════════════════════ -->
+  <section class="sheet" id="engagement">
+    <div class="wrap sheet__grid">
+      <div class="sheet__gut"><span class="sec">§02</span><span class="lbl">Engagement</span></div>
+      <div class="sheet__body">
+        <div class="sheet__head rv">
+          <h2>How the work is bought</h2>
+          <p class="lede">Published starting figures, because hiding them wastes both our time. Final number comes after a scoping call — never before.</p>
+        </div>
+
+        <div class="tiers rv">
+          <article class="tier">
+            <div class="tier__hd">
+              <span class="code">PKG-01</span>
+              <h3>Discovery &amp; scope</h3>
+            </div>
+            <div class="tier__bd">
+              <span class="price">$450 <small>fixed</small></span>
+              <ul>
+                <li>Two working sessions on your problem</li>
+                <li>Architecture and data model on paper</li>
+                <li>Broken-down build plan with estimates</li>
+                <li>Fixed quote for the build itself</li>
+                <li>Fee credited back if you proceed</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="tier tier--pick">
+            <div class="tier__hd">
+              <span class="pickmark">Most requested</span>
+              <h3>Fixed-scope build</h3>
+            </div>
+            <div class="tier__bd">
+              <span class="price">from $6,500 <small>per project</small></span>
+              <ul>
+                <li>Full app: backend, frontend, database</li>
+                <li>Weekly demo on a staging URL</li>
+                <li>Deployment and CI/CD included</li>
+                <li>Docs, API collection, runbook</li>
+                <li>30-day warranty after go-live</li>
+                <li>Milestones: 40% / 30% / 30%</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="tier">
+            <div class="tier__hd">
+              <span class="code">PKG-03</span>
+              <h3>Retained engineer</h3>
+            </div>
+            <div class="tier__bd">
+              <span class="price">from $2,400 <small>per month</small></span>
+              <ul>
+                <li>Reserved days each week, ongoing</li>
+                <li>Roadmap work, not just firefighting</li>
+                <li>Your Jira, your standups, your repo</li>
+                <li>Rolling monthly, 30 days' notice</li>
+                <li>Best fit after a launch</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="scrollx rv">
+          <table class="rates">
+            <thead>
+              <tr><th scope="col">Unit</th><th scope="col">Best for</th><th scope="col">Rate</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Hourly</td><td>Small changes, unclear or shifting scope</td><td>$45 / hr</td></tr>
+              <tr><td>Sprint (2 weeks)</td><td>A defined slice with a demo at the end</td><td>from $2,900</td></tr>
+              <tr><td>Code &amp; architecture audit</td><td>Second opinion before you commit budget</td><td>$1,200 / 5 days</td></tr>
+              <tr><td>Deployment only</td><td>Your code, my pipeline and servers</td><td>from $900</td></tr>
+              <tr><td>Emergency triage</td><td>Production down, data or payments at risk</td><td>$90 / hr</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="formnote">Figures in USD, exclusive of taxes and third-party costs (cloud, licences, domains). Invoiced in your currency on request.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule"></div></div>
+
+  <!-- ══ WORK ══════════════════════════════════════════════
+       These are WORKED EXAMPLES, not client records - deliberately
+       framed as "how I'd build it" so nothing here is a claim that
+       can't be checked.
+
+       When you land a real project, replace a card wholesale:
+         - swap <span class="tag tag--rep">Worked example</span>
+           for the domain tag only
+         - "The situation" -> what was actually broken
+         - "How I'd build it" -> "Built"
+         - the three .metric blocks -> measured outcomes
+       One real record outranks all three of these.
+       ═════════════════════════════════════════════════════ -->
+  <section class="sheet" id="work">
+    <div class="wrap sheet__grid">
+      <div class="sheet__gut"><span class="sec">§03</span><span class="lbl">Work</span></div>
+      <div class="sheet__body">
+        <div class="sheet__head rv">
+          <h2>Three problems, and how I'd build them</h2>
+          <p class="lede">Worked examples rather than client records — the shape of problem I take on, and the approach I'd bring to each. Written this way on purpose: I'd rather show you the thinking than pad the page with logos you can't verify. Measured records replace these as projects complete.</p>
+        </div>
+
+        <div class="cases">
+          <article class="case rv">
+            <div class="case__hd">
+              <span class="code">WE-01</span>
+              <h3>Multi-tenant field service platform</h3>
+              <span class="tag tag--rep">Worked example</span>
+              <span class="tag">Logistics</span>
+            </div>
+            <div class="case__bd">
+              <div>
+                <span class="lbl">The situation</span>
+                <p>Technicians across several franchises run on paper job cards. Head office reconciles them by hand and only sees a completed job days later. Every franchise wants its own data kept separate.</p>
+              </div>
+              <div>
+                <span class="lbl">How I'd build it</span>
+                <p>A Spring Boot modular monolith — not microservices at this size — with row-level tenant isolation enforced in Postgres rather than in application code, so a missed filter can't leak another franchise's jobs. An Angular PWA that queues work offline and reconciles on reconnect, photo evidence straight to S3 with presigned URLs, and a supervisor approval step before a job closes.</p>
+              </div>
+              <div>
+                <span class="lbl">Stack</span>
+                <div class="chips"><span class="chip">Spring Boot 3</span><span class="chip">Angular 17</span><span class="chip">PostgreSQL</span><span class="chip">S3</span><span class="chip">Docker</span><span class="chip">GitHub Actions</span></div>
+              </div>
+            </div>
+            <div class="metrics">
+              <div class="metric"><b>Offline-first</b><span class="code">Sync and conflict strategy</span></div>
+              <div class="metric"><b>Row-level</b><span class="code">Tenant isolation, in the DB</span></div>
+              <div class="metric"><b>6–8 wk</b><span class="code">Estimated build window</span></div>
+            </div>
+          </article>
+
+          <article class="case rv">
+            <div class="case__hd">
+              <span class="code">WE-02</span>
+              <h3>Billing and payments for a B2B SaaS</h3>
+              <span class="tag tag--rep">Worked example</span>
+              <span class="tag">SaaS</span>
+            </div>
+            <div class="case__bd">
+              <div>
+                <span class="lbl">The situation</span>
+                <p>Subscriptions tracked in spreadsheets. Failed cards go unnoticed for weeks, upgrades are pro-rated by hand, and finance can't reconcile the revenue number against the payment provider.</p>
+              </div>
+              <div>
+                <span class="lbl">How I'd build it</span>
+                <p>The hard part isn't the Stripe call, it's what happens when the same webhook arrives twice. A double-entry ledger keyed on the provider's event ID, so replays are inert by construction rather than by a de-dup table someone forgets to check. Then automatic dunning and retries, proration on plan change, and an internal console finance can operate without filing an engineering ticket.</p>
+              </div>
+              <div>
+                <span class="lbl">Stack</span>
+                <div class="chips"><span class="chip">Java 21</span><span class="chip">Spring Boot</span><span class="chip">Stripe</span><span class="chip">Razorpay</span><span class="chip">Redis</span><span class="chip">Angular</span></div>
+              </div>
+            </div>
+            <div class="metrics">
+              <div class="metric"><b>Idempotent</b><span class="code">Safe under webhook replay</span></div>
+              <div class="metric"><b>Double-entry</b><span class="code">Ledger model, auditable</span></div>
+              <div class="metric"><b>5–7 wk</b><span class="code">Estimated build window</span></div>
+            </div>
+          </article>
+
+          <article class="case rv">
+            <div class="case__hd">
+              <span class="code">WE-03</span>
+              <h3>Legacy rescue: Struts/JSP to Spring Boot + Angular</h3>
+              <span class="tag tag--rep">Worked example</span>
+              <span class="tag">Manufacturing</span>
+            </div>
+            <div class="case__bd">
+              <div>
+                <span class="lbl">The situation</span>
+                <p>A decade-old internal app with no tests and nobody left who wrote it. Reports take tens of seconds, releases happen quarterly because each one is frightening, and every change risks breaking something unrelated.</p>
+              </div>
+              <div>
+                <span class="lbl">How I'd build it</span>
+                <p>Not a rewrite — those fail. A strangler-fig migration behind a gateway: new Spring Boot modules take traffic one screen at a time while the old app keeps serving everything else, so there's no cutover weekend and no freeze. Characterisation tests first to pin current behaviour, then query and index work on the reports, then a pipeline that deploys on merge so releases stop being events.</p>
+              </div>
+              <div>
+                <span class="lbl">Stack</span>
+                <div class="chips"><span class="chip">Spring Boot</span><span class="chip">Angular</span><span class="chip">Oracle → Postgres</span><span class="chip">Flyway</span><span class="chip">JUnit 5</span><span class="chip">Nginx</span></div>
+              </div>
+            </div>
+            <div class="metrics">
+              <div class="metric"><b>Strangler-fig</b><span class="code">Migration pattern, no freeze</span></div>
+              <div class="metric"><b>5 days</b><span class="code">Audit before any code</span></div>
+              <div class="metric"><b>Screen by screen</b><span class="code">Shippable in slices</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule"></div></div>
+
+  <!-- ══ PROCESS ═══════════════════════════════════════════ -->
+  <section class="sheet" id="process">
+    <div class="wrap sheet__grid">
+      <div class="sheet__gut"><span class="sec">§04</span><span class="lbl">Process</span></div>
+      <div class="sheet__body">
+        <div class="sheet__head rv">
+          <h2>What the six weeks actually look like</h2>
+          <p class="lede">Timings below are for a typical fixed-scope build. Nothing here is a surprise once we start — you always know what week you're in and what lands next.</p>
+        </div>
+
+        <div class="steps rv">
+          <div class="step">
+            <span class="step__w">W0</span>
+            <div>
+              <h3>Scoping call and written quote</h3>
+              <p>Thirty to sixty minutes on the problem, users and constraints. You get back a scope document, an architecture sketch and one fixed number. If the fit is wrong, I say so and suggest who is better placed.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step__w">W1</span>
+            <div>
+              <h3>Foundations</h3>
+              <p>Repository, data model, migrations, auth, environments and the deployment pipeline — before feature work, not after. By Friday there is a real URL you can open, even if it only logs in.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step__w">W2–W5</span>
+            <div>
+              <h3>Build, demo, adjust</h3>
+              <p>Features ship to staging continuously. Every Friday: a short recorded walkthrough, what moved, what's next, and anything that threatens the date. Small course corrections are free — a change in scope becomes a written change order.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step__w">W6</span>
+            <div>
+              <h3>Hardening and go-live</h3>
+              <p>Load-sensitive queries, error handling, backups, monitoring and alerts. Production deploy with a rollback path, plus a walkthrough session for whoever operates it day to day.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step__w">POST</span>
+            <div>
+              <h3>Thirty-day warranty</h3>
+              <p>Anything that doesn't behave as specified gets fixed at no cost. New ideas are quoted separately — that boundary is written down up front so neither of us has to argue about it later.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sheet__head rv" style="padding-top:var(--s3)">
+          <span class="lbl">Handover package — included, not extra</span>
+          <ul class="deliver">
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8.6l4 4L14 4"/></svg> Git repository, full history, transferred to you</li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8.6l4 4L14 4"/></svg> README a new developer can actually follow</li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8.6l4 4L14 4"/></svg> API docs (OpenAPI) and Postman collection</li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8.6l4 4L14 4"/></svg> Database schema and migration scripts</li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8.6l4 4L14 4"/></svg> CI/CD pipeline and environment config</li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8.6l4 4L14 4"/></svg> Deployment runbook and rollback steps</li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8.6l4 4L14 4"/></svg> Recorded handover walkthrough</li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8.6l4 4L14 4"/></svg> Credentials moved to your accounts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule"></div></div>
+
+  <!-- ══ STACK ═════════════════════════════════════════════ -->
+  <section class="sheet" id="stack">
+    <div class="wrap sheet__grid">
+      <div class="sheet__gut"><span class="sec">§05</span><span class="lbl">Stack</span></div>
+      <div class="sheet__body">
+        <div class="sheet__head rv">
+          <h2>Tools I'd stake a deadline on</h2>
+          <p class="lede">Depth over breadth. The first two columns are where a decade of production experience sits; the rest I use confidently where the job calls for it.</p>
+        </div>
+
+        <div class="stack rv">
+          <section>
+            <h3>Backend</h3>
+            <ul>
+              <li><b>Java 17 / 21</b><span>Core</span></li>
+              <li><b>Spring Boot 3</b><span>Core</span></li>
+              <li><b>Spring Security, JWT, OAuth2</b><span>Core</span></li>
+              <li><b>Spring Data JPA / Hibernate</b><span>Core</span></li>
+              <li><b>REST, OpenAPI, GraphQL</b><span>Core</span></li>
+              <li><b>Kafka, RabbitMQ</b><span>Events</span></li>
+              <li><b>JUnit 5, Mockito, Testcontainers</b><span>Testing</span></li>
+            </ul>
+          </section>
+          <section>
+            <h3>Frontend</h3>
+            <ul>
+              <li><b>Angular 14–19</b><span>Core</span></li>
+              <li><b>TypeScript, RxJS, NgRx</b><span>Core</span></li>
+              <li><b>Angular Material, Tailwind</b><span>UI</span></li>
+              <li><b>React, Next.js</b><span>Secondary</span></li>
+              <li><b>Node.js, Express, NestJS</b><span>Secondary</span></li>
+              <li><b>Accessibility, Core Web Vitals</b><span>Quality</span></li>
+            </ul>
+          </section>
+          <section>
+            <h3>Data</h3>
+            <ul>
+              <li><b>PostgreSQL, MySQL</b><span>Core</span></li>
+              <li><b>Oracle, SQL Server</b><span>Legacy</span></li>
+              <li><b>Redis</b><span>Cache</span></li>
+              <li><b>MongoDB</b><span>Document</span></li>
+              <li><b>Flyway, Liquibase</b><span>Migrations</span></li>
+              <li><b>Query tuning, indexing</b><span>Performance</span></li>
+            </ul>
+          </section>
+          <section>
+            <h3>Delivery</h3>
+            <ul>
+              <li><b>Docker, Compose</b><span>Core</span></li>
+              <li><b>GitHub Actions, Jenkins</b><span>CI/CD</span></li>
+              <li><b>AWS: EC2, RDS, S3, ECS</b><span>Cloud</span></li>
+              <li><b>Nginx, TLS, VPS</b><span>Ops</span></li>
+              <li><b>Prometheus, Grafana, Sentry</b><span>Monitoring</span></li>
+              <li><b>Git, trunk-based flow</b><span>Practice</span></li>
+            </ul>
+          </section>
+          <section>
+            <h3>Also</h3>
+            <ul>
+              <li><b>WordPress, custom themes</b><span>CMS</span></li>
+              <li><b>WooCommerce</b><span>E-commerce</span></li>
+              <li><b>Stripe, Razorpay, PayPal</b><span>Payments</span></li>
+              <li><b>Keycloak, Auth0</b><span>Identity</span></li>
+              <li><b>Jira, Notion, Slack</b><span>Working with you</span></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule"></div></div>
+
+  <!-- ══ FAQ ═══════════════════════════════════════════════ -->
+  <section class="sheet" id="faq">
+    <div class="wrap sheet__grid">
+      <div class="sheet__gut"><span class="sec">§06</span><span class="lbl">Terms</span></div>
+      <div class="sheet__body">
+        <div class="sheet__head rv">
+          <h2>The questions that decide it</h2>
+        </div>
+
+        <div class="faq rv">
+          <details>
+            <summary>Who owns the code?</summary>
+            <div class="ans">You do. Full IP assignment transfers on final payment, in writing, in the contract. I keep no licence over your product and I don't reuse client code elsewhere. Generic utilities I wrote before your project stay mine, and you get a perpetual right to use them.</div>
+          </details>
+          <details>
+            <summary>Can you deploy it, or do we handle that?</summary>
+            <div class="ans">Either. Deployment is included in fixed-scope builds by default: Docker images, a CI/CD pipeline, environments, TLS, backups and alerts on your AWS account or a VPS. If you have a platform team with their own standards, I build to their conventions and hand over instead — the price drops accordingly.</div>
+          </details>
+          <details>
+            <summary>What happens when the scope changes?</summary>
+            <div class="ans">It always changes a little, and small adjustments inside the agreed shape are free. Anything that adds a new screen, entity or integration becomes a one-paragraph change order with its own price and date impact. You approve it before I write the code, so there are never surprise line items on an invoice.</div>
+          </details>
+          <details>
+            <summary>How do payments work?</summary>
+            <div class="ans">Fixed-scope: 40% to start, 30% at the mid-point demo, 30% on delivery. Retainers are invoiced monthly in advance. Hourly work is billed every two weeks with a time log attached. Bank transfer, Wise or Payoneer; taxes are added where they apply.</div>
+          </details>
+          <details>
+            <summary>Will you work inside our existing team?</summary>
+            <div class="ans">Yes — that's what the retainer is for. Your repo, your branching model, your Jira, your code review. I'll join standups in your working hours and I don't need managing, but I do ask for one person who can answer product questions within a day.</div>
+          </details>
+          <details>
+            <summary>What are your hours and how fast do you reply?</summary>
+            <div class="ans">Core overlap of at least four hours with your timezone, agreed before we start. Messages get an answer the same working day; production emergencies get an answer within two hours during the warranty period or an active retainer.</div>
+          </details>
+          <details>
+            <summary>Do you sign NDAs?</summary>
+            <div class="ans">Routinely, before any detail is shared. Send yours or use mine. Client names stay off this site unless they've explicitly agreed to be named.</div>
+          </details>
+          <details>
+            <summary>What do you not take on?</summary>
+            <div class="ans">Equity-only work, projects with no defined decision-maker, "just make it look like this app" with no scope, and rescue jobs where the previous developer still has production access. I'll also decline anything I can't build to a standard I'd put my name on.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule"></div></div>
+
+  <!-- ══ CONTACT ═══════════════════════════════════════════ -->
+  <section class="sheet" id="contact">
+    <div class="wrap sheet__grid">
+      <div class="sheet__gut"><span class="sec">§07</span><span class="lbl">Contact</span></div>
+      <div class="sheet__body">
+        <div class="sheet__head rv">
+          <h2>Tell me what's broken or what you want built</h2>
+          <p class="lede">A few lines is enough to start. You'll hear back within one working day with either questions, a rough range, or an honest referral elsewhere.</p>
+        </div>
+
+        <div class="contact rv">
+          <!-- Web3Forms: paste your access key below (see README → Contact form) -->
+          <form id="cform" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+            <input type="hidden" name="subject" value="New project enquiry from portfolio" />
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true" />
+
+            <div class="row2">
+              <div class="field">
+                <label for="f-name">Name</label>
+                <input id="f-name" name="name" type="text" required autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" required autocomplete="email" />
+              </div>
+            </div>
+            <div class="row2">
+              <div class="field">
+                <label for="f-type">What you need</label>
+                <select id="f-type" name="need">
+                  <option>Full application build</option>
+                  <option>API / backend work</option>
+                  <option>Legacy rescue or audit</option>
+                  <option>Deployment / CI-CD only</option>
+                  <option>React / Node.js work</option>
+                  <option>WordPress site</option>
+                  <option>Retained engineer</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-budget">Budget range</label>
+                <select id="f-budget" name="budget">
+                  <option>Under $2,000</option>
+                  <option>$2,000 – $6,000</option>
+                  <option>$6,000 – $15,000</option>
+                  <option>$15,000+</option>
+                  <option>Need guidance on this</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-msg">The problem, in your words</label>
+              <textarea id="f-msg" name="message" required placeholder="What exists today, what should exist instead, and any date you're working towards."></textarea>
+            </div>
+            <div class="cta">
+              <button class="btn btn--stamp" type="submit">Send enquiry</button>
+              <span class="formnote" id="fnote" role="status" aria-live="polite">No newsletter, no sales sequence.</span>
+            </div>
+          </form>
+
+          <div>
+            <span class="lbl">Direct channels</span>
+            <div class="channels" style="margin-top:.7rem">
+              <button type="button" id="copymail" data-mail="madhusalaria1996@gmail.com">
+                <span class="k">Email</span><span class="v" id="mailv">madhusalaria1996@gmail.com</span>
+              </button>
+              <!-- If you do use WhatsApp, swap href for https://wa.me/61452394161
+                   and the label back to WhatsApp. tel: is the safer default in AU. -->
+              <a href="tel:+61452394161">
+                <span class="k">Mobile</span><span class="v">+61 452 394 161</span>
+              </a>
+
+              <!-- ══ HIDDEN UNTIL REAL ═══════════════════════════════════
+                   These four were live links to YOUR-HANDLE / to a CV file
+                   that does not exist yet - four 404s on a page a client is
+                   reading. Uncomment each one as it becomes real:
+
+                     Calendly  - create the event, put the handle in the URL
+                     LinkedIn  - your profile slug
+                     GitHub    - your username
+                     CV        - print assets/capability-sheet.html to
+                                 assets/madhu-salaria-cv.pdf first (README §2)
+
+                   Or run:  tools\personalise.ps1 -LinkedIn x -GitHub y -Calendly z
+                   and then delete these comment markers.
+                   ═══════════════════════════════════════════════════════
+              <a href="https://calendly.com/YOUR-HANDLE/30min" target="_blank" rel="noopener">
+                <span class="k">Call</span><span class="v">Book 30 minutes →</span>
+              </a>
+              <a href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener">
+                <span class="k">LinkedIn</span><span class="v">/in/YOUR-HANDLE</span>
+              </a>
+              <a href="https://github.com/YOUR-HANDLE" target="_blank" rel="noopener">
+                <span class="k">GitHub</span><span class="v">/YOUR-HANDLE</span>
+              </a>
+              <a href="assets/madhu-salaria-cv.pdf" download>
+                <span class="k">CV</span><span class="v">Download PDF ↓</span>
+              </a>
+              ══ END HIDDEN ══ -->
+            </div>
+            <p class="formnote" style="margin-top:var(--s3)">Based in Craigieburn, Victoria · working with teams across Australia, NZ, the US and UK · invoicing worldwide</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© <span id="yr">2026</span> Madhu Salaria — Software delivery</p>
+    <p>Spring Boot · Angular · React · Node.js</p>
+    <p class="end"><a href="#top">Back to top ↑</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  root.classList.add("js");
+
+  /* ── theme: stored choice wins over OS ─────────────────── */
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "dark" || saved === "light") root.setAttribute("data-theme", saved);
+  } catch (e) {}
+
+  document.getElementById("theme").addEventListener("click", function () {
+    var isDark = root.getAttribute("data-theme")
+      ? root.getAttribute("data-theme") === "dark"
+      : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = isDark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+
+  /* ── mobile nav ────────────────────────────────────────── */
+  var burger = document.getElementById("burger");
+  var nav = document.getElementById("nav");
+  burger.addEventListener("click", function () {
+    var open = nav.getAttribute("data-open") === "true";
+    nav.setAttribute("data-open", String(!open));
+    burger.setAttribute("aria-expanded", String(!open));
+  });
+  nav.addEventListener("click", function (e) {
+    if (e.target.tagName === "A") {
+      nav.setAttribute("data-open", "false");
+      burger.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  /* ── reveal + rule draw ────────────────────────────────────
+     Content must never depend on the observer to become visible:
+     a background tab paints no frames, so IntersectionObserver
+     callbacks are not delivered and the page would sit blank.
+     1. anything in the first viewport is revealed outright
+     2. the observer handles the rest
+     3. if the observer never delivers, everything is revealed  */
+  var targets = Array.prototype.slice.call(document.querySelectorAll(".rv, .rule"));
+  function show(el) { el.classList.add("in"); }
+
+  setTimeout(function () {
+    targets.forEach(function (el) {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.95) show(el);
+    });
+  }, 40);
+
+  var pending = targets.filter(function (el) {
+    return el.getBoundingClientRect().top >= window.innerHeight * 0.95;
+  });
+
+  if ("IntersectionObserver" in window && pending.length) {
+    var delivered = false;
+    var io = new IntersectionObserver(function (entries) {
+      delivered = true;
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { show(en.target); io.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+    pending.forEach(function (t) { io.observe(t); });
+    setTimeout(function () { if (!delivered) pending.forEach(show); }, 3000);
+  } else {
+    pending.forEach(show);
+  }
+
+  /* ── current section in nav ────────────────────────────── */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav__list a[href^="#"]'));
+  var sections = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  if ("IntersectionObserver" in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        links.forEach(function (a, i) {
+          a.setAttribute("aria-current", sections[i] === en.target ? "true" : "false");
+        });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach(function (s) { if (s) spy.observe(s); });
+  }
+
+  /* ── copy email ────────────────────────────────────────── */
+  var cm = document.getElementById("copymail");
+  cm.addEventListener("click", function () {
+    var v = document.getElementById("mailv");
+    var original = v.textContent;
+    function done(msg) {
+      v.textContent = msg;
+      setTimeout(function () { v.textContent = original; }, 1600);
+    }
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(cm.dataset.mail).then(function () { done("Copied to clipboard"); },
+        function () { window.location.href = "mailto:" + cm.dataset.mail; });
+    } else {
+      window.location.href = "mailto:" + cm.dataset.mail;
+    }
+  });
+
+  /* ── contact form (Web3Forms, no backend) ──────────────── */
+  var form = document.getElementById("cform");
+  var note = document.getElementById("fnote");
+  function setNote(text, state) {
+    note.textContent = text;
+    if (state) { note.setAttribute("data-state", state); } else { note.removeAttribute("data-state"); }
+  }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var key = form.querySelector('[name="access_key"]').value;
+    if (key.indexOf("YOUR_") === 0) {
+      /* No Web3Forms key yet (README §3). Rather than show the visitor an
+         error, hand the message to their mail client so the form still
+         works. Delete this block once the real key is in place. */
+      var f = new FormData(form);
+      var body =
+        "Name: "    + (f.get("name")   || "") + "\n" +
+        "Email: "   + (f.get("email")  || "") + "\n" +
+        "Need: "    + (f.get("need")   || "") + "\n" +
+        "Budget: "  + (f.get("budget") || "") + "\n\n" +
+        (f.get("message") || "");
+      window.location.href =
+        "mailto:madhusalaria1996@gmail.com" +
+        "?subject=" + encodeURIComponent("Project enquiry — " + (f.get("name") || "website")) +
+        "&body="    + encodeURIComponent(body);
+      setNote("Opening your email app…");
+      return;
+    }
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    setNote("Sending…");
+    fetch(form.action, {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: new FormData(form)
+    }).then(function (r) { return r.json(); }).then(function (data) {
+      if (data.success) {
+        form.reset();
+        setNote("Sent. You'll hear back within one working day.", "ok");
+      } else {
+        setNote("Send failed. Email madhusalaria1996@gmail.com instead.", "err");
+      }
+      btn.disabled = false;
+    }).catch(function () {
+      setNote("Network error. Email madhusalaria1996@gmail.com instead.", "err");
+      btn.disabled = false;
+    });
+  });
+
+  document.getElementById("yr").textContent = String(new Date().getFullYear());
+})();
+</script>
+</body>
+</html>
