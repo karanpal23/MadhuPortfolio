@@ -3,46 +3,68 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Page not found — Madhu Salaria</title>
+<title>Page not found — Stackforge Studio</title>
 <meta name="robots" content="noindex" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230E1615'/%3E%3Cpath d='M6 26V6l10 12L26 6v20' stroke='%23E3775A' stroke-width='2.6' fill='none' stroke-linejoin='round'/%3E%3Crect x='22' y='6' width='4' height='4' fill='%235CC8BB'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B1F3A'/%3E%3Cpath d='M10 12.5c0-1.7 1.5-3 3.5-3H20v3h-6.2c-.5 0-.8.3-.8.7 0 .4.3.6.9.8l3.9 1.1c1.8.5 3.2 1.6 3.2 3.6 0 2-1.7 3.3-3.8 3.3H10v-3h6.6c.5 0 .9-.3.9-.7 0-.4-.3-.6-.9-.8l-3.7-1c-1.9-.5-2.9-1.6-2.9-3.4Z' fill='%2300C2CB'/%3E%3C/svg%3E" />
 <style>
 :root{
-  --paper:#E9EDEC;--panel:#FBFCFB;--ink:#12201F;--muted:#546865;
-  --rule:rgba(18,32,31,.16);--rule-strong:rgba(18,32,31,.34);--stamp:#A83A22;
+  --bg:#FFFFFF;--panel:#F5F7FB;--ink:#0B1F3A;--muted:#64748B;
+  --rule:rgba(11,31,58,.10);--rule-strong:rgba(11,31,58,.20);
+  --brand:#00C2CB;--brand-2:#00A8B0;--brand-wash:rgba(0,194,203,.10);--brand-ink:#03242A;
+  --sans:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
   --mono:ui-monospace,"Cascadia Mono","JetBrains Mono","SF Mono",Consolas,monospace;
-  --serif:Charter,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
 }
 @media (prefers-color-scheme:dark){
-  :root{--paper:#0E1615;--panel:#141F1E;--ink:#DEE6E4;--muted:#8FA29F;
-    --rule:rgba(222,230,228,.16);--rule-strong:rgba(222,230,228,.36);--stamp:#E3775A}
+  :root:not([data-theme]){
+    --bg:#0A1220;--panel:#0F1B2F;--ink:#E6EDF7;--muted:#94A3B8;
+    --rule:rgba(230,237,247,.10);--rule-strong:rgba(230,237,247,.22);
+    --brand:#26D6DF;--brand-2:#00C2CB;--brand-wash:rgba(38,214,223,.10);--brand-ink:#031A1D;
+  }
 }
-:root[data-theme="dark"]{--paper:#0E1615;--panel:#141F1E;--ink:#DEE6E4;--muted:#8FA29F;
-  --rule:rgba(222,230,228,.16);--rule-strong:rgba(222,230,228,.36);--stamp:#E3775A}
-:root[data-theme="light"]{--paper:#E9EDEC;--panel:#FBFCFB;--ink:#12201F;--muted:#546865;
-  --rule:rgba(18,32,31,.16);--rule-strong:rgba(18,32,31,.34);--stamp:#A83A22}
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;display:grid;place-items:center;padding:2rem;
-  background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.68}
-.card{max-width:34rem;display:flex;flex-direction:column;gap:1.1rem}
-.lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-h1{font-family:var(--mono);font-size:clamp(1.5rem,1.1rem+2vw,2.2rem);font-weight:600;letter-spacing:-.03em;margin:0}
-h1 em{font-style:normal;color:var(--stamp)}
+  background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.62}
+.card{max-width:34rem;display:flex;flex-direction:column;gap:1.2rem}
+.brand{display:flex;align-items:center;gap:.65rem}
+.brand__mark{width:36px;height:36px;border-radius:8px;background:var(--ink);display:grid;place-items:center}
+.brand__mark svg{width:22px;height:22px}
+.brand__name{display:flex;flex-direction:column;line-height:1}
+.brand__name b{font-size:1.02rem;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+.brand__name span{font-family:var(--mono);font-size:.6rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:.15rem}
+.lbl{font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-2)}
+h1{font-size:clamp(1.7rem,1.2rem+2vw,2.4rem);font-weight:800;letter-spacing:-.035em;line-height:1.1;margin:0}
+h1 em{font-style:normal;color:var(--brand-2)}
 p{margin:0;color:var(--muted)}
 hr{border:0;border-top:1px solid var(--rule-strong);margin:0}
-a.btn{align-self:flex-start;font-family:var(--mono);font-size:.78rem;font-weight:600;letter-spacing:.05em;
-  padding:.7rem 1.1rem;background:var(--stamp);color:#FFF6F2;text-decoration:none}
-:root[data-theme="dark"] a.btn,:root:not([data-theme]) a.btn{color:#1A0C07}
-@media (prefers-color-scheme:light){:root:not([data-theme]) a.btn{color:#FFF6F2}}
+a.btn{align-self:flex-start;font-family:var(--sans);font-size:.92rem;font-weight:600;
+  padding:.78rem 1.25rem;background:var(--brand);color:var(--brand-ink);border-radius:8px;
+  text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:transform .16s}
+a.btn:hover{transform:translateY(-1px)}
+a.btn svg{width:14px;height:14px}
 </style>
 </head>
 <body>
   <div class="card">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M6 8.5c0-1.4 1.2-2.5 2.8-2.5H15v2.5H8.9c-.4 0-.7.2-.7.6 0 .3.2.5.7.6l3.2.9c1.5.4 2.6 1.3 2.6 3 0 1.6-1.4 2.7-3.1 2.7H6V13.8h5.4c.4 0 .7-.2.7-.5 0-.3-.3-.5-.8-.6l-3-.9c-1.5-.4-2.3-1.3-2.3-2.8Z" fill="#00C2CB"/>
+          <path d="M4 4h16v3H4zM4 17h16v3H4z" fill="#00C2CB" opacity=".35"/>
+        </svg>
+      </span>
+      <span class="brand__name">
+        <b>Stackforge</b>
+        <span>Studio · Software Delivery</span>
+      </span>
+    </div>
     <span class="lbl">Error 404</span>
     <h1>That page <em>doesn't exist.</em></h1>
     <hr />
     <p>Wrong link, or something that used to live here has moved. Everything on this site is on one page — the link below will get you there.</p>
-    <a class="btn" href="/">Back to the start</a>
+    <a class="btn" href="/">
+      Back to the start
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h11m-4-4 4 4-4 4"/></svg>
+    </a>
   </div>
 </body>
 </html>
