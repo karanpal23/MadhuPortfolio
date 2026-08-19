@@ -66,7 +66,11 @@ export function SiteHeader() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 1.1rem 0;
+          /* padding-block only — do NOT use `padding:` shorthand here.
+             This element also carries the `.wrap` class which sets the
+             horizontal padding; a shorthand would reset it to 0. */
+          padding-top: 1.1rem;
+          padding-bottom: 1.1rem;
           gap: 2rem;
         }
         /* .brand styles live in globals.css — outside styled-jsx to survive

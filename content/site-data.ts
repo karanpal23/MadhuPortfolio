@@ -271,7 +271,7 @@ export const team: Member[] = [
     italic: "Pal",
     gradient: ["var(--accent)", "var(--accent-warm)"],
     bio:
-      "15+ years shipping full-stack applications across React, Angular, Spring Boot, and Node. Leads technical delivery — architecture, code review, and the parts of the project where the coffee cools quickest.",
+      "Years of hands-on experience shipping full-stack applications across React, Angular, Spring Boot, and Node. Leads technical delivery — architecture, code review, and the parts of the project where the coffee cools quickest.",
     links: [
       { kind: "linkedin", href: "#" },
       { kind: "github", href: "#" },
@@ -280,27 +280,27 @@ export const team: Member[] = [
   {
     initial: "A",
     role: "Co-founder · Operations",
-    name: "Co-founder",
-    italic: "Two",
+    name: "Aditya",
+    italic: "",
     gradient: ["#4a7bff", "#a044ff"],
     bio:
-      "Runs client relationships, scoping, and delivery. The person who makes sure a project starts on the right foot and lands where you expected. Placeholder — replace with real bio.",
+      "Runs client relationships, scoping, and delivery. The person who makes sure a project starts on the right foot and lands where you expected.",
     links: [
       { kind: "linkedin", href: "#" },
-      { kind: "email", href: "mailto:hello@codesfoundry.com" },
+      { kind: "email", href: "mailto:madhusalaria1996@gmail.com" },
     ],
   },
   {
-    initial: "S",
+    initial: "M",
     role: "Co-founder · Growth",
-    name: "Co-founder",
-    italic: "Three",
+    name: "Madhu",
+    italic: "Salaria",
     gradient: ["#2ec27e", "#3584e4"],
     bio:
-      "Handles positioning, content, and SEO — the reason you found this page. Also owns documentation and contracts. Placeholder — replace with real bio.",
+      "Handles positioning, content, and SEO — the reason you found this page. Also owns documentation and client contracts.",
     links: [
       { kind: "linkedin", href: "#" },
-      { kind: "email", href: "mailto:hello@codesfoundry.com" },
+      { kind: "email", href: "mailto:madhusalaria1996@gmail.com" },
     ],
   },
 ];
