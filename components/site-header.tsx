@@ -66,9 +66,8 @@ export function SiteHeader() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          /* padding-block only — do NOT use `padding:` shorthand here.
-             This element also carries the `.wrap` class which sets the
-             horizontal padding; a shorthand would reset it to 0. */
+          /* Vertical only — the .wrap class on this element sets the      */
+          /* horizontal padding; a shorthand here would reset it to zero. */
           padding-top: 1.1rem;
           padding-bottom: 1.1rem;
           gap: 2rem;
