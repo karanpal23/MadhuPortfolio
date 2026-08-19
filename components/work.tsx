@@ -27,7 +27,7 @@ export function Work() {
                       src={cover}
                       alt=""
                       fill
-                      sizes="(max-width: 900px) 100vw, 50vw"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="case-photo-img"
                     />
                     <div className="case-photo-veil" />

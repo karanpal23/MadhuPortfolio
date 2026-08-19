@@ -88,9 +88,9 @@ export function Contact() {
             </div>
           </Reveal>
 
-          <div className="contact-form-wrap">
+          <Reveal delay={2} className="contact-form-wrap">
             <ContactForm />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

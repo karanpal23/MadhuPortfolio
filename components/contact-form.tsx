@@ -35,7 +35,7 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form reveal d1" onSubmit={onSubmit}>
+    <form className="contact-form" onSubmit={onSubmit}>
       <div className="field-row">
         <div className="field">
           <label htmlFor="f-name">Your name</label>
@@ -88,8 +88,8 @@ export function ContactForm() {
           background: var(--surface);
           border: 1px solid var(--rule);
           border-radius: 24px;
-          padding: clamp(1.8rem, 3vw, 2.5rem);
-          display: flex; flex-direction: column; gap: 1.4rem;
+          padding: clamp(1rem, 1.5vw, 2.5rem);
+          display: flex; flex-direction: column; gap: 1rem;
           box-shadow: var(--shadow-md);
         }
         .field { display: flex; flex-direction: column; gap: 0.5rem; }
@@ -106,10 +106,10 @@ export function ContactForm() {
           background: transparent;
           border: 0;
           border-bottom: 1px solid var(--rule);
-          padding: 0.75rem 0;
+          padding: 0.05rem 0;
           color: var(--text);
           font-family: inherit;
-          font-size: 1rem;
+          font-size: 0.7rem;
           transition: border-color 0.2s var(--ease);
           outline: none;
           width: 100%;
@@ -126,7 +126,7 @@ export function ContactForm() {
         .field select option { background: var(--surface); color: var(--text); }
         .field input::placeholder, .field textarea::placeholder { color: var(--text-soft); }
         .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent); }
-        .field textarea { min-height: 110px; resize: vertical; font-family: inherit; }
+        .field textarea { min-height: 70px; resize: vertical; font-family: inherit; }
         .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
         .form-foot {
           display: flex; align-items: center; justify-content: space-between;
@@ -141,7 +141,7 @@ export function ContactForm() {
           letter-spacing: 0.1em;
           color: var(--text-soft);
         }
-        @media (max-width: 820px) {
+        @media (max-width: 768px) {
           .field-row { grid-template-columns: 1fr; }
         }
       `}</style>

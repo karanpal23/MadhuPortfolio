@@ -26,7 +26,7 @@ export function Journal() {
                   src={photography.journalCovers[p.slug]}
                   alt=""
                   fill
-                  sizes="(max-width: 900px) 100vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="cover-photo"
                 />
                 <div className="cover-veil" />
