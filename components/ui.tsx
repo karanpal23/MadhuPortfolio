@@ -5,7 +5,7 @@ import { forwardRef, useEffect, useRef } from "react";
 /* --- Reveal wrapper (IntersectionObserver) ---------------------------- */
 
 type RevealProps = {
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   delay?: 0 | 1 | 2 | 3 | 4;
   className?: string;
   children: React.ReactNode;

@@ -76,11 +76,17 @@ function HeroVisual() {
 
   useEffect(() => {
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const canvas = canvasRef.current;
-    if (!canvas || reduce) return;
+    const canvasEl = canvasRef.current;
+    if (!canvasEl || reduce) return;
 
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    const ctxEl = canvasEl.getContext("2d");
+    if (!ctxEl) return;
+
+    // Locals bound to non-null for closure use — TS narrowing does not
+    // propagate `const` from the outer scope into nested function bodies.
+    const canvas: HTMLCanvasElement = canvasEl;
+    const ctx: CanvasRenderingContext2D = ctxEl;
+
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let W = 0,
       H = 0;

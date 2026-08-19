@@ -1,4 +1,6 @@
-type IconProps = React.SVGProps<SVGSVGElement>;
+import type { JSX, SVGProps } from "react";
+
+type IconProps = SVGProps<SVGSVGElement>;
 
 const base = {
   viewBox: "0 0 24 24",
